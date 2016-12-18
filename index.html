@@ -60,14 +60,21 @@ h6 {
 }
 
 .startElement {
-  border-top: 1px solid #bbb;
-  padding-top: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
 }
 
-.startElement h5 {
+.entry {
+  padding-top: 2rem;
+
+}
+
+.entryTitle h5 {
   margin-bottom: 0rem;
+}
+
+.entryTitle {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+
 }
 
 .header li {
@@ -80,144 +87,237 @@ h6 {
    padding-right: 3px;
 }
 
+.blackContainer {
+  background: black;
+  color: #ddd;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.blackContainer ul img {
+  filter: invert(100%);
+}
+
+.whiteContainer {
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+
+.blackContainer .startElement {
+  border-top: 0px;
+}
+
 </style>
 </head>
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="blackContainer">
+
   <div class="container">
 
-  <div class="row">
-    <div class="one-third column" style="margin-top: 15%">
-      
+    <div class="row header">
+      <div class="one-third column">
+        <img src="images/AUTH_niels_raw.jpg" class="authorImage paperTeaser"/>
+      </div>
+      <div class="two-thirds column">
+        <h1>Niels Joubert</h1>
+        <ul>
+          <li>PhD Candidate</li>
+          <li>Computer Science</li>
+          <li>Stanford University</li>
+          <li>Advised by <a href="https://graphics.stanford.edu/~hanrahan/">Prof. Pat Hanrahan</a></li>
+        </ul>
+        
+        <ul>
+          <li><a href="mailto:niels@cs.stanford.edu"><img src="octicons/svg/mail.svg"></img>niels@cs.stanford.edu</a></li>
+          <li><a href="https://scholar.google.com/citations?user=cH_Lfx0AAAAJ&hl=en&oi=ao"><img src="octicons/svg/beaker.svg">Google Scholar</a></li>
+          <li><a href="https://github.com/njoubert"><img src="octicons/svg/mark-github.svg"></img>Github</a></li>
+          <li><a href="https://youtube.com/njoubert"><img src="octicons/svg/device-camera-video.svg"></img>Youtube</a></li>
+
+        </ul>
+
+
+
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="row header">
-    <div class="one-third column">
-      <img src="images/AUTH_niels_raw.jpg" class="authorImage paperTeaser"/>
+<div class="whiteContainer">
+  <div class="container">
+  
+    <div class="row">
+    <h2>Assorted Research</h2>
     </div>
-    <div class="two-thirds column">
-      <h1>Niels Joubert</h1>
-      <ul>
-        <li>PhD Candidate</li>
-        <li>Computer Science</li>
-        <li>Stanford University</li>
-        <li>Advised by <a href="https://graphics.stanford.edu/~hanrahan/">Prof. Pat Hanrahan</a></li>
-      </ul>
-      
 
-     
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>Tools to Facilitate Quadrotor-based Cinematography</h5>
+          2016 Thesis
+        </div>
+      </div>
 
-      <ul>
-        <li><a href="mailto:niels@cs.stanford.edu"><img src="octicons/svg/mail.svg"></img>niels@cs.stanford.edu</a></li>
+      <div class="row">
+        <div class="one-third column">
+        <img src="images/SU_Seal_Red.png" class="paperTeaser">
+        </div>
+        <div class="two-thirds column">
+          <p>Presents my overall thesis work on <em>cinematography-first interaction</em> with quadrotor cameras, enabling novices and experts alike to capture high quality video footage without manually pilotting a quadrotor.</p>
 
-        <li><a href="https://scholar.google.com/citations?user=cH_Lfx0AAAAJ&hl=en&oi=ao"><img src="octicons/svg/beaker.svg">Google Scholar</a></li>
+          <a href="https://www.youtube.com/watch?v=Grfwk8Hd1u4">Thesis defense video (youtube)</a><br/>
+          Thesis defense slides (<a href="assets/njoubert_thesis_defense_JUST_SLIDES.pdf">just slides</a> | 
+          <a href="assets/njoubert_thesis_defense_SLIDES_AND_NOTES.pdf">with notes</a>)<br/>
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>Towards a Drone Cinematographer: Guiding Quadrotor Cameras using Visual Composition Principles</h5>
+          2016 Paper
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
+
+        <img src="images/DC_teaser.png" class="paperTeaser borderAndBox">
+        </div>
+        <div class="two-thirds column">
+          <p>Presents an end-to-end system to automously capture cinematic shots of people using an autonomous quadrotor camera, by drawing on visual composition principles.</p>
+
+          <p>by Niels Joubert*, Jane L. E*, Dan B Goldman, Floraine Berthouzoz, Mike Roberts, James A. Landay, and Pat Hanrahan. Appears on arXiv 2016</p>
+
+          <p><a href="https://stanford-gfx.github.io/TowardsADroneCinematographer/">Project Website</a> | 
+          <a href="https://arxiv.org/abs/1610.01691">Research Paper</a></p>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>An Interactive Tool for Designing Quadrotor Camera Shots</h5>
+          2015 Paper
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
         
-        <li><a href="https://github.com/njoubert"><img src="octicons/svg/mark-github.svg"></img>Github</a></li>
-      </ul>
-    </div>
-  </div>
-    
-    <div class="row startElement">
-      <div class="two-thirds column">
-        <h5>Tools to Facilitate Quadrotor-based Cinematography</h5>
-        2016 Thesis
+        <img src="images/Horus_teaser.png" class="paperTeaser borderAndBox">
+        </div>
+        <div class="two-thirds column">
+          <p>Demonstrates a tool to preplan and automously execute cinematic trajectories using quadrotor cameras</p>
+
+          <p>by Niels Joubert*, Mike Roberts*, Anh Truong, Floraine Berthouzoz, and Pat Hanrahan. Appears in SIGGRAPH Asia 2015.</p>
+
+          <p><a href="https://stanford-gfx.github.io/TowardsADroneCinematographer/">Project Website</a> | 
+          <a href="https://arxiv.org/abs/1610.01691">Research Paper</a></p>
+
+        </div>
+
       </div>
     </div>
 
-    <div class="row">
-      <div class="one-third column">
-      <img src="images/SU_Seal_Red.png" class="paperTeaser">
-      </div>
-      <div class="two-thirds column">
-        <p>Presents my overall thesis work on <em>cinematography-first interaction</em> with quadrotor cameras, enabling novices and experts alike to capture high quality video footage without manually pilotting a quadrotor.</p>
 
-        <a href="https://www.youtube.com/watch?v=Grfwk8Hd1u4">Thesis defense video (youtube)</a><br/>
-        Thesis defense slides (<a href="assets/njoubert_thesis_defense_JUST_SLIDES.pdf">just slides</a> | 
-        <a href="assets/njoubert_thesis_defense_SLIDES_AND_NOTES.pdf">with notes</a>)<br/>
+
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>Liszt: a domain specific language for building portable mesh-based PDE solvers</h5>
+          2011 Paper
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
         
-      </div>
+        <img src="images/liszt_teaser.png" class="paperTeaser borderAndBox">
+        </div>
+        <div class="two-thirds column">
+          <p>Presents a programming language and runtime system for performant and productive mesh-based simulation programming.</p>
 
-    </div>
+          <p>by Zach DeVito, Niels Joubert, Francisco Palocios, Stephen Oakley, Montserrat Medina, Mike Barrientos, Erich Elsen, Frank Ham, Alex Aiken, Karthic Duraisamy, Eric Darve, Juan Alonso, and Pat Hanrahan. Appears in SUPERCOMPUTING 2011.</p>
 
-    <div class="row startElement">
-      <div class="two-thirds column">
-        <h5>Towards a Drone Cinematographer: Guiding Quadrotor Cameras using Visual Composition Principles</h5>
-        2016 Paper
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-third column">
+          <p> 
+          <a href="http://adl.stanford.edu/papers/SC_2011.pdf">Research Paper</a></p>
 
-      <img src="images/DC_teaser.png" class="paperTeaser borderAndBox">
-      </div>
-      <div class="two-thirds column">
-        <p>Presents an end-to-end system to automously capture cinematic shots of people using an autonomous quadrotor camera, by drawing on visual composition principles.</p>
-
-        <p>by Niels Joubert*, Jane L. E*, Dan B Goldman, Floraine Berthouzoz, Mike Roberts, James A. Landay, and Pat Hanrahan. Appears on arXiv 2016</p>
-
-        <p><a href="https://stanford-gfx.github.io/TowardsADroneCinematographer/">Project Website</a> | 
-        <a href="https://arxiv.org/abs/1610.01691">Research Paper</a></p>
-
+        </div>
 
       </div>
-
-    </div>
-
-
-
-    <div class="row startElement">
-      <div class="two-thirds column">
-        <h5>An Interactive Tool for Designing Quadrotor Camera Shots</h5>
-        2015 Paper
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-third column">
-      
-      <img src="images/Horus_teaser.png" class="paperTeaser borderAndBox">
-      </div>
-      <div class="two-thirds column">
-        <p>Demonstrates a tool to preplan and automously execute cinematic trajectories using quadrotor cameras</p>
-
-        <p>by Niels Joubert*, Mike Roberts*, Anh Truong, Floraine Berthouzoz, and Pat Hanrahan. Appears in SIGGRAPH Asia 2015.</p>
-
-        <p><a href="https://stanford-gfx.github.io/TowardsADroneCinematographer/">Project Website</a> | 
-        <a href="https://arxiv.org/abs/1610.01691">Research Paper</a></p>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="row startElement">
-      <div class="two-thirds column">
-        <h5>Liszt: a domain specific language for building portable mesh-based PDE solvers</h5>
-        2011 Paper
-      </div>
-    </div>
-    <div class="row">
-      <div class="one-third column">
-      
-      <img src="images/liszt_teaser.png" class="paperTeaser borderAndBox">
-      </div>
-      <div class="two-thirds column">
-        <p>Presents a programming language and runtime system for performant and productive mesh-based simulation programming.</p>
-
-        <p>by Zach DeVito, Niels Joubert, Francisco Palocios, Stephen Oakley, Montserrat Medina, Mike Barrientos, Erich Elsen, Frank Ham, Alex Aiken, Karthic Duraisamy, Eric Darve, Juan Alonso, and Pat Hanrahan. Appears in SUPERCOMPUTING 2011.</p>
-
-        <p> 
-        <a href="http://adl.stanford.edu/papers/SC_2011.pdf">Research Paper</a></p>
-
-      </div>
-
     </div>
 
   
   </div>
+</div>
+
+<div class="blackContainer">
+  <div class="container">
+    <div class="row">
+    <h2>Assorted Art</h2>
+    </div>
+
+
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>The Dusty Connection</h5>
+          2016 Theme Camp
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
+        
+        <img src="images/DustyConnection_teaser.jpg" class="paperTeaser borderAndBox">
+        </div>
+        <div class="two-thirds column">
+          <p>Bringing Radical Intimacy to the Playa! A tearoom, inside which participants play a connection game based on the <a href="http://www.nytimes.com/2015/01/11/fashion/no-37-big-wedding-or-small.html">36 Questions</a>, designed to foster deep and meaningful personal connections between citizens of Black Rock City. Grown men were crying.</p>
+
+          <p>Co-founded by Niels Joubert and Fergus Noble</p>
+          <p></p>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="entry">
+      <div class="row entryTitle">
+        <div class="two-thirds column">
+          <h5>Black Rock City Hall</h5>
+          2015 Art Car
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column">
+        
+        <img src="images/blackrockcityhall_teaser.jpg" class="paperTeaser borderAndBox">
+        </div>
+        <div class="two-thirds column">
+          <p>A mobile City Hall for Black Rock City, providing a convenient polling location for BRC's Majoral Election Race. Sadly the ballot boxes were lost shortly after the tragic and untimely demise of the electrical system.</p>
+
+          <p>Co-led by Ryan Mason and Niels Joubert</p>
+          <p><a href="http://adl.stanford.edu/papers/SC_2011.pdf"></a></p>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
