@@ -22,9 +22,11 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
 
-  <!-- Favicon
+  <!-- Icons
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="octicons/octicons.css" media="screen" title="no title">  
+
 
 <style>
 
@@ -50,7 +52,6 @@ h6 {
   margin-right: auto;
   display: block;
   margin-bottom: 2rem;
-
 }
 
 .borderAndBox {
@@ -69,6 +70,16 @@ h6 {
   margin-bottom: 0rem;
 }
 
+.header li {
+  margin: 0;
+  list-style: none;
+}
+
+.header li img {
+   vertical-align:middle;
+   padding-right: 3px;
+}
+
 </style>
 </head>
 <body>
@@ -83,16 +94,29 @@ h6 {
     </div>
   </div>
 
-  <div class="row">
+  <div class="row header">
     <div class="one-third column">
-      <img src="images/AUTH_niels_raw.jpg" class="authorImage"/>
+      <img src="images/AUTH_niels_raw.jpg" class="authorImage paperTeaser"/>
     </div>
     <div class="two-thirds column">
-    <h1>Niels Joubert</h1>
-    PhD Candidate<br/>
-    Computer Science<br/>
-    Stanford University</br>
-    Advised by <a href="https://graphics.stanford.edu/~hanrahan/">Prof. Pat Hanrahan</a></br>
+      <h1>Niels Joubert</h1>
+      <ul>
+        <li>PhD Candidate</li>
+        <li>Computer Science</li>
+        <li>Stanford University</li>
+        <li>Advised by <a href="https://graphics.stanford.edu/~hanrahan/">Prof. Pat Hanrahan</a></li>
+      </ul>
+      
+
+     
+
+      <ul>
+        <li><a href="mailto:niels@cs.stanford.edu"><img src="octicons/svg/mail.svg"></img>niels@cs.stanford.edu</a></li>
+
+        <li><a href="https://scholar.google.com/citations?user=cH_Lfx0AAAAJ&hl=en&oi=ao"><img src="octicons/svg/beaker.svg">Google Scholar</a></li>
+        
+        <li><a href="https://github.com/njoubert"><img src="octicons/svg/mark-github.svg"></img>Github</a></li>
+      </ul>
     </div>
   </div>
     
@@ -127,7 +151,7 @@ h6 {
     <div class="row">
       <div class="one-third column">
 
-      <img src="images/DC_teaser.png" class="paperTeaser borderAndBox .u-max-full-width">
+      <img src="images/DC_teaser.png" class="paperTeaser borderAndBox">
       </div>
       <div class="two-thirds column">
         <p>Presents an end-to-end system to automously capture cinematic shots of people using an autonomous quadrotor camera, by drawing on visual composition principles.</p>
