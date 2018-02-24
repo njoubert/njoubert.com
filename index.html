@@ -154,16 +154,68 @@ h6 {
 
 .talks-and-notes ul {
   font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .talks-and-notes ul img {
   width: 16px;
 }
 
-.date {
+
+
+.talks-and-notes td {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  padding: 0px 4pt;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 0;
+  line-height: 16px;
+}
+
+.talks-and-notes img {
+  vertical-align: bottom;
+}
+
+.talks-and-notes .td-preamble {
+  min-width: 56pt;
+}
+
+
+.talks-and-notes .td-note::before {
+  content: " ";
+  display: inline-block;
+  background-size: 100%;
+  width: 16px;
+  height: 20px;
+  vertical-align: top;
+  padding-right: 6pt;
+  background: url("octicons/svg/pencil.svg") no-repeat top left; 
 
 }
+
+.talks-and-notes .td-talk::before {
+  content: " ";
+  display: inline-block;
+  background-size: 100%;
+  width: 16px;
+  height: 20px;
+  vertical-align: top;
+  padding-right: 6pt;
+  content: url("octicons/svg/comment-discussion.svg");  
+}
+
+.talks-and-notes .td-sound::before {
+  content: " ";
+  display: inline-block;
+  background-size: 100%;
+  width: 16px;
+  height: 20px;
+  vertical-align: top;
+  padding-right: 6pt;
+  content: url("octicons/svg/unmute.svg");  
+}
+
 
 </style>
 </head>
@@ -219,50 +271,42 @@ h6 {
 
     <p>These are informal talks and notes on a wide range of work-in-progress and half-baked ideas.</br> Expect wide variations in quality, from almost-publishable to text-deluge.</p>
     
+    Notes
     <div class="informal-list">
-      <ul>
-        <li><img src="octicons/svg/pencil.svg"/> 2018 02 - <a href="https://docs.google.com/document/d/1Q0CtPEONRQTimjz9fiuiBwedDFOTYsfyA7ntFaq84Js/edit?usp=sharing">A Few Notes on Achieving and Maintaining Mental Wellness as a Stanford PhD Candidate</a></li>
-        <li><img src="octicons/svg/pencil.svg"/> 2018 02 - <a href="https://docs.google.com/document/d/1s-BrXNH-h-k8eRmJWKxrqsXxmwcQSRXqcbUlCThEE_c/edit?usp=sharing">Examining the SCAA Brew Control Chart and Underlying Aggregate Model for Brewing Coffee </a></li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2017 12 - <a href="https://www.dropbox.com/s/lxfcdxjpploykhz/CS107_Git_Internals.pdf?dl=0">CS107 Guest Lecture: The Git Source Code Manager, A Case Study</a></li> 
-        <li><img src="octicons/svg/pencil.svg"/> 2016 06 - <a href="https://docs.google.com/document/d/13jaM1MQCteyXSDH9lB_TBE7y8mHcpqQZAGCnPdOJ7mE/edit?usp=sharing">A Few Principles for Building a Successful Burning Man Theme Camp</a></li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2016 05 - <a href="assets/10ThingsIWishIKnewWhenIStartedMyPhd.pdf"> 10 Things I Wish I Knew When I Started My PhD</a></li>
-        <li><img src="octicons/svg/pencil.svg"/> 2015 12 - <a href="https://docs.google.com/document/d/1eCTPgrPSej2dEOUrWoH9WtempUBPpppkJYY9Ua_Wdgg/edit?usp=sharing">How to run a Good Meeting, especially with your Graduate Advisor </a></li>
-        <li><img src="octicons/svg/pencil.svg"/> 2013 03 - <a href="assets/inferenceNotes.pdf">Notes on Probabilistic Inference for Computer Graphics Researchers</a></li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2013 02 - <a href="http://old.njoubert.com/talks/GetRichSlowly/"> Get Rich Slowly - The Elements on Investing (for graduate students)</a></li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2012 07 - <a href="http://old.njoubert.com/talks/JSInheritance/">Javascript Y U So Broken: Objects, Functions and Inheritance</a></li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2012 02 - <a href="http://old.njoubert.com/talks/2012_02_flashg_etexts.pdf">Some Ideas on Digital Textbooks (and Pink Floyd)</a></li>
-        <li><img src="octicons/svg/pencil.svg"/> 2009 04 - <a href="assets/mine_simulation.pdf">An Introduction to Simulation: Lagrangian simulation of spring-mass systems</a></li>
-        <li><img src="octicons/svg/pencil.svg"/> 2008 11 - <a href="http://old.njoubert.com/teaching/cs184_fa08/section/sec13inversekinematics.pdf"> Numerical Methods for Inverse Kinematics, a worksheet</a></li>
-<!-- NOTE
-        <li><img src="octicons/svg/pencil.svg"/>  - <a href=""> </a></li>
--->
-<!-- TALK
-        <li><img src="octicons/svg/comment-discussion.svg"/> - <a href=""> </a></li>
--->
-      </ul>
+      <table>
+        <tr><td class="td-preamble td-note">2018-02</td><td><a href="https://docs.google.com/document/d/1Q0CtPEONRQTimjz9fiuiBwedDFOTYsfyA7ntFaq84Js/edit?usp=sharing">A Few Notes on Achieving and Maintaining Mental Wellness as a Stanford PhD Candidate</a></td></tr>
+        <tr><td class="td-preamble td-note">2018-02</td><td><a href="https://docs.google.com/document/d/1s-BrXNH-h-k8eRmJWKxrqsXxmwcQSRXqcbUlCThEE_c/edit?usp=sharing">Examining the SCAA Brew Control Chart and Underlying Aggregate Model for Brewing Coffee </a></td></tr>
+        <tr><td class="td-preamble td-talk">2017-12</td><td><a href="https://www.dropbox.com/s/lxfcdxjpploykhz/CS107_Git_Internals.pdf?dl=0">CS107 Guest Lecture: The Git Source Code Manager, A Case Study</a></td></tr> 
+        <tr><td class="td-preamble td-note">2016-06</td><td><a href="https://docs.google.com/document/d/13jaM1MQCteyXSDH9lB_TBE7y8mHcpqQZAGCnPdOJ7mE/edit?usp=sharing">A Few Principles for Building a Successful Burning Man Theme Camp</a></td></tr>
+        <tr><td class="td-preamble td-talk">2016-05</td><td><a href="assets/10ThingsIWishIKnewWhenIStartedMyPhd.pdf">10 Things I Wish I Knew When I Started My PhD</a></td></tr>
+        <tr><td class="td-preamble td-note">2015-12</td><td><a href="https://docs.google.com/document/d/1eCTPgrPSej2dEOUrWoH9WtempUBPpppkJYY9Ua_Wdgg/edit?usp=sharing">How to run a Good Meeting, especially with your Graduate Advisor </a></td></tr>
+        <tr><td class="td-preamble td-note">2013-03</td><td><a href="assets/inferenceNotes.pdf">Notes on Probabilistic Inference for Computer Graphics Researchers</a></td></tr>
+        <tr><td class="td-preamble td-talk">2013-02</td><td><a href="http://old.njoubert.com/talks/GetRichSlowly/">Get Rich Slowly - The Elements on Investing (for graduate students)</a></td></tr>
+        <tr><td class="td-preamble td-talk">2012-07</td><td><a href="http://old.njoubert.com/talks/JSInheritance/">Javascript Y U So Broken: Objects, Functions and Inheritance</a></td></tr>
+        <tr><td class="td-preamble td-talk">2012-02</td><td><a href="http://old.njoubert.com/talks/2012_02_flashg_etexts.pdf">Some Ideas on Digital Textbooks (and Pink Floyd)</a></td></tr>
+        <tr><td class="td-preamble td-note">2009-04</td><td><a href="assets/mine_simulation.pdf">An Introduction to Simulation: Lagrangian simulation of spring-mass systems</a></td></tr>
+        <tr><td class="td-preamble td-note">2008-11</td><td><a href="http://old.njoubert.com/teaching/cs184_fa08/section/sec13inversekinematics.pdf">Numerical Methods for Inverse Kinematics, a worksheet</a></td></tr>
+      </table>
 
-      <br/>
+
       Audio Experiences
-      <ul>
-        <li><img src="octicons/svg/unmute.svg"/> 2011-2012 - <a href="http://old.njoubert.com/podcasts/">KZSU Radioshows</a></li>
-      </ul>
+      <table>
+        <tr><td class="td-preamble td-sound">2011-2012</td><td><a href="http://old.njoubert.com/podcasts/">KZSU Radioshows</a></td></tr>
+      </table>
 
 
-      <br/>
       Templates
+      <table>
+        <tr><td class="td-preamble td-talk">2016-10</td><td><a href="assets/highLevelIntro.pdf">SIGGRAPH Talk High Level Outline</a></td></tr>
+      </table>
 
-      <ul>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2016 - <a href="assets/highLevelIntro.pdf">SIGGRAPH Talk High Level Outline</a></li>
-      </ul>
-
-      <br/>Notes I Like from Colleagues
-      <ul>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2015 - <a href="assets/thirdparty/hanrahan-write.pdf">How to Write a (Systems) Paper</a> by Prof. Pat Hanrahan</li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2015 - <a href="assets/thirdparty/fatahalian-cleartalktips.pdf">Tips for Giving Clear Talks</a> by Prof. Kayvon Fatahalian</li>
-        <li><img src="octicons/svg/comment-discussion.svg"/> 2015 - <a href="assets/thirdparty/pollard-howtopitchaproject.pdf">How to Pitch a Project</a> by Prof. Nancy Pollard</li>
-        
-        <li><img src="octicons/svg/pencil.svg"/> 2011 - <a href="assets/thirdparty/durand-writing.pdf">Notes on Writing</a> by Prof. Fredo Durand</li>
-      </ul>
+      Notes I Like from Colleagues
+      <table>
+        <tr><td class="td-preamble td-talk">2015-12</td><td><a href="assets/thirdparty/hanrahan-write.pdf">How to Write a (Systems) Paper</a> by Prof. Pat Hanrahan</td></tr>
+        <tr><td class="td-preamble td-talk">2015-12</td><td><a href="assets/thirdparty/fatahalian-cleartalktips.pdf">Tips for Giving Clear Talks</a> by Prof. Kayvon Fatahalian</td></tr>
+        <tr><td class="td-preamble td-talk">2015-11</td><td><a href="assets/thirdparty/pollard-howtopitchaproject.pdf">How to Pitch a Project</a> by Prof. Nancy Pollard</td></tr>
+        <tr><td class="td-preamble td-note">2011-05</td><td><a href="assets/thirdparty/durand-writing.pdf">Notes on Writing</a> by Prof. Fredo Durand</a></td></tr>
+      </table>
 
     </div>
 
