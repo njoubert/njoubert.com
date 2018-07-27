@@ -222,53 +222,6 @@ h6 {
   content: url("octicons/svg/list-unordered.svg");  
 }
 
-
-/* 
-  Automatic Header Anchors
-  http://blog.parkermoore.de/2014/08/01/header-anchor-links-in-vanilla-javascript-for-github-pages-and-jekyll/
- */
-
- /*!
- *  Font Awesome 4.1.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-
-.fa {
-  display: inline-block;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-}
-.fa-link::before {
-  content: url("octicons/svg/link.svg");
-}
-
-.blackContainer .fa-link::before {
-  filter: invert(100%); 
-}
-
-/*
- * This code is courtesy Ben Balter, modified by Parker Moore for jekyllrb.com
- * http://ben.balter.com/2014/03/13/pages-anchor-links/
- */
-.header-link {
-  position: relative;
-  left: 0.5em;
-  opacity: 0;
-  font-size: 0.8em;
-
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
-}
-h2:hover .header-link,
-h3:hover .header-link,
-h4:hover .header-link,
-h5:hover .header-link,
-h6:hover .header-link {
-  opacity: 1;
-}
-
 </style>
 </head>
 <body>
@@ -624,10 +577,9 @@ h6:hover .header-link {
 <div class="blueContainer">
   <div class="container talks-and-notes">    
     <h2>Festival Spreadsheets, Advice & Opinions</h2>
-    <h3>Generators</h3>
     <table>
 
-      <tr><td class="td-preamble td-spreadsheet">2018-07</td><td><a href="https://docs.google.com/spreadsheets/d/1RuAi5aBflIExqgKRLiiDzeiQ98FbsjLlHmaWgcdJZUY/edit?usp=sharing">Dr. Electric's Comprehensive Recommended Burning Man Generator Setup and External Run Fuel Tank Parts List</a></td></tr>
+      <tr><td class="td-preamble td-spreadsheet">2018-07</td><td><a href="https://docs.google.com/spreadsheets/d/1RuAi5aBflIExqgKRLiiDzeiQ98FbsjLlHmaWgcdJZUY/edit?usp=sharing">Dr. Electric's Comprehensive Recommended Burning Man Generator Setup</a></td></tr>
 
       <tr><td class="td-preamble td-spreadsheet">2018-07</td><td><a href="https://docs.google.com/spreadsheets/d/1tFyd0ghmeLnK-6nAaEfIW7UJTg6mar2-cRUVHL33YZI/edit?usp=sharing">Dr. Electric's Generator Calculators: Effective Power, Apparent Load & Fuel Consumption, Sound Level, and Generator Comparisions</a></td></tr>
 
@@ -660,12 +612,6 @@ h6:hover .header-link {
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script>
-
-/* 
-  Automatic Header Anchors
-  http://blog.parkermoore.de/2014/08/01/header-anchor-links-in-vanilla-javascript-for-github-pages-and-jekyll/
- */
- 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -674,50 +620,6 @@ h6:hover .header-link {
   ga('create', 'UA-4525725-1', 'auto');
   ga('send', 'pageview');
 
-</script>
-<script>
-var anchorForId = function (id) {
-  var anchor = document.createElement("a");
-  anchor.className = "header-link";
-  anchor.href      = "#" + id;
-  anchor.innerHTML = "<i class=\"fa fa-link\"></i>";
-  return anchor;
-};
-
-var linkifyAnchors = function (level, containingElement) {
-  var headers = containingElement.getElementsByTagName("h" + level);
-  
-  for (var h = 0; h < headers.length; h++) {
-    var header = headers[h];
-
-    header.innerHTML
-    headertext = header.innerHTML.toLowerCase().trim().replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~() ]/g,"");
-    header.id = headertext
- 
-      header.appendChild(anchorForId(headertext));
-  }
-};
-
-document.onreadystatechange = function () {
-  if (this.readyState === "complete") {
-    var contentBlocks = document.getElementsByClassName("container");
-    if (!contentBlocks) {
-      return;
-    }
-    for (var i = 0; i < contentBlocks.length; i++) {
-      for (var level = 2; level <= 3; level++) {
-        linkifyAnchors(level, contentBlocks[i]);
-      }
-    }
-    hash = window.location.hash.substr(1);
-
-    if (hash) {
-      console.log(hash)
-      location.hash = "#";
-      location.hash = "#" + hash;
-    }
-  }
-};
 </script>
 </body>
 </html>
