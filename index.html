@@ -707,7 +707,13 @@ document.onreadystatechange = function () {
       for (var level = 2; level <= 3; level++) {
         linkifyAnchors(level, contentBlocks[i]);
       }
+    }
+    hash = window.location.hash.substr(1);
 
+    if (hash) {
+      console.log(hash)
+      location.hash = "#";
+      location.hash = "#" + hash;
     }
   }
 };
