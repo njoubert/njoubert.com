@@ -771,11 +771,20 @@ var linkifyAnchors = function (level, containingElement) {
   for (var h = 0; h < headers.length; h++) {
     var header = headers[h];
 
-    header.innerHTML
-    headertext = header.innerHTML.toLowerCase().trim().replace(/[\.,-\/#'!?$%\^&\*;:{}=\-_`~() ]/g,"");
+    var headerrawtext = header.innerHTML
+    var spaceCount = (headerrawtext.split(" ").length - 1);    
+    var headertext = ""
+    if (spaceCount < 3) {
+      headertext = headerrawtext.toLowerCase().trim().replace(/[\.,-\/#'!?$%\^&\*;:{}=\-_`~() ]/g,"");
+    } else {
+      words = headerrawtext.split(" ")
+      for (w in words) {
+        headertext += words[w][0]
+      }
+      console.log(headertext);
+    }
     header.id = headertext
- 
-      header.appendChild(anchorForId(headertext));
+    header.appendChild(anchorForId(headertext));
   }
 };
 
