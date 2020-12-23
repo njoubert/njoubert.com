@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+  <TITLE>Zookeeper Online</TITLE>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <LINK REL="icon" HREF="img/kzsu/favicon.ico">
+  <LINK REL="stylesheet" HREF="css/tablesorter/theme.default-1563180494.css">
+  <LINK REL="stylesheet" HREF="css/zoostyle-1601110236.css">
+  <LINK REL="stylesheet" HREF="css/kzsustyle-1596221903.css">
+  <LINK REL="stylesheet" HREF="css/about-1558429294.css">
+  <SCRIPT TYPE="text/javascript" SRC="js/jquery.min-1568883508.js"></SCRIPT>
+  <SCRIPT TYPE="text/javascript" SRC="js/jquery.tablesorter.min-1563180494.js"></SCRIPT>
+
+  <!-- pull down date & time pickers if browser is stupid -->
+  <SCRIPT TYPE="text/javascript"><!--
+    var datefield=document.createElement("input");datefield.setAttribute("type","date");if(datefield.type!="date"){document.write('<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />');document.write('<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"><\/script>')
+document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" />');document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"><\/script>');}  // -->
+  </SCRIPT>
+
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio Music Reviews" HREF="zkrss.php?feed=reviews">
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio Airplay Charts" HREF="zkrss.php?feed=charts">
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio A-File Adds" HREF="zkrss.php?feed=adds">
+  <LINK REL="search" TYPE="application/opensearchdescription+xml" HREF="?target=opensearch" title="Zookeeper Online">
+</HEAD>
+<BODY>
+<DIV CLASS="box">
+  <DIV CLASS="header">
+    <DIV CLASS="headerLogo">
+      <A HREF="http://kzsu.stanford.edu/">
+        <IMG SRC="img/kzsu/kzsu_aharoni.png" ALT="KZSU Radio 90.1 FM" TITLE="KZSU Radio 90.1 FM">
+      </A>
+    </DIV>
+    <DIV CLASS="headerListen">
+      <A HREF="http://kzsu.stanford.edu/live"><SPAN CLASS="clickTo">click to</SPAN><BR>listen<BR><SPAN CLASS="listenLive">LIVE</SPAN></A>
+    </DIV>
+    <DIV CLASS="headerNavbar">
+      <A HREF="http://kzsu.stanford.edu/schedule/">schedule</A> +
+      <A HREF="?">music</A> +
+      <A HREF="http://kzsu.stanford.edu/sports/">sports</a> +
+      <A HREF="http://kzsu.stanford.edu/concerts/">concerts</a> +
+      <!--A HREF="http://kzsu.stanford.edu/news/" target="_blank">news</A> + -->
+      <A HREF="http://kzsu.stanford.edu/join/">join</A>
+      <BR>
+      <A HREF="http://kzsu.stanford.edu/contact/">contact</A> +
+      <A HREF="http://kzsu.stanford.edu/about/">about</A> +
+      <A HREF="http://kzsu.stanford.edu/zine/">zine</A> +
+      <A HREF="http://kzsu.stanford.edu/donate/">donate</A> +
+      <A HREF="http://kzsu.stanford.edu/merch/">merch</A>
+    </DIV>
+  </DIV>
+  <DIV CLASS="leftNav">
+    <P CLASS="zktitle"><A HREF="?">Zookeeper Online</A></P>
+    <TABLE CELLPADDING=0>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=find"><B>Find It!</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=search"><B>Classic Search</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewRecent"><B>Recent Reviews</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=addmgr"><B>A-File</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewDJ"><B>DJ Zone!</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2sel" HREF="?action=viewDate"><B>Playlists by Date</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewChart"><B>Airplay Charts</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=contact"><B>Submit Music</B></A></TD></TR>
+      <TR><TD></TD><TD><DIV style='margin-top:8px'><A CLASS="nav3" HREF="ssoLogin.php"><B>Login</B></A>&nbsp;&nbsp;<A STYLE="font-size: 90%;" HREF="?action=loginHelp">(help)</A></DIV></TD></TR>
+    </TABLE>
+  </DIV>
+  <DIV CLASS="content">
+<DIV CLASS='playlistBanner'>&nbsp;Futurebeat Radio with <A HREF='?action=viewDJ&amp;seq=selUser&amp;viewuser=987' CLASS='nav2'>DJ Joubert</A><DIV>Thu Sep 08, 2011  8pm-10pm&nbsp;</DIV></DIV>
+<TABLE class='playlistTable' CELLPADDING=1>
+<THEAD><TR class='playlistHdr' ALIGN=LEFT><TH WIDTH='64px'>Time</TH><TH WIDTH='25%'>Artist</TH><TH WIDTH='25%'>Track</TH><TH></TH><TH>Album/Label</TH></TR></THEAD><TBODY>
+<TR class='songRow'><TD></TD><TD>Shlohmo</TD><TD>Places</TD><TD></TD><TD>Places EP<span class='songLabel'> / FoF Music</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Mogadishu</TD><TD>Submergence</TD><TD></TD><TD>One Year...<span class='songLabel'> / Spontaneous Rhythm</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Mai Doi Todd</TD><TD>My Room Is White (Flying Lotus Remix)</TD><TD></TD><TD>La Ninja<span class='songLabel'> / Brainfeeder Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>DJ Mitsu the Beats</TD><TD>Wait So Long</TD><TD></TD><TD>LA JPN LA<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Hudson Mohawke</TD><TD>All Your Love</TD><TD></TD><TD>Santin Panthers<span class='songLabel'> / Warp Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Hudson Mohawke</TD><TD>Polkadot Blues</TD><TD></TD><TD>Polyfolk Dance EP<span class='songLabel'> / Warp Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>PANTyRAID</TD><TD>Get The Money</TD><TD></TD><TD>-<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Breakbot</TD><TD>Baby I'm Yours (Radio Edit)</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=980232&amp;q=&amp;action=search' CLASS='nav'>Baby I'm Yours</A><span class='songLabel'> / Ed Banger Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Magnetic Man</TD><TD>Getting Nowhere Feat. John Legend</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=979409&amp;q=&amp;action=search' CLASS='nav'>Magnetic Man</A><span class='songLabel'> / Startime</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Virtual Boy</TD><TD>Mass</TD><TD></TD><TD>Symphony No. None<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Ryan York</TD><TD>If I Am This Forest</TD><TD></TD><TD>Singe<span class='songLabel'> / Unreleased</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Telepopmusik</TD><TD>Smile</TD><TD></TD><TD>Genetic World<span class='songLabel'> / Capitol</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Back Seat Dreamer</TD><TD>Moment In Time</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=948438&amp;q=&amp;action=search' CLASS='nav'>Colors Of Dreams, They're In You, The</A><span class='songLabel'> / Stickfigure Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>SBTRKT</TD><TD>Living Like I Do (Feat. Sampa)</TD><TD></TD><TD>Living Like I Do Sampler<span class='songLabel'> / Young Turks</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Never Never (SBTRKT Remix)</TD><TD>Little Dragon</TD><TD></TD><TD>Blinking Pigs EP<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Ramadanman</TD><TD>Tempest</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=959766&amp;q=&amp;action=search' CLASS='nav'>Dj Kicks - Apparat</A><span class='songLabel'> / !K7 Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Thom Yorke</TD><TD>Harrowdown Hill</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=959766&amp;q=&amp;action=search' CLASS='nav'>Dj Kicks - Apparat</A><span class='songLabel'> / !K7 Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Modeselektor</TD><TD>Art &amp; Cash (SBTRKT Remix)</TD><TD></TD><TD>Art &amp; Cash Remixes<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>LDFD</TD><TD>Outtacontrol</TD><TD></TD><TD>Outtacontrol<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Shigeto</TD><TD>And We Gonna (Samiyam chopsticks remix)</TD><TD></TD><TD>Full Circle Remixes<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Thievery Corporation</TD><TD>Web Of Deception</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=983819&amp;q=&amp;action=search' CLASS='nav'>Culture Of Fear</A><span class='songLabel'> / Esl Music</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Danger Mouse &amp; Daniele Luppi</TD><TD>Two Against One</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=977238&amp;q=&amp;action=search' CLASS='nav'>Rome: Original Motion Picture Soundtrack</A><span class='songLabel'> / Capitol Records Inc.</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Thievery Corporation</TD><TD>Fragments</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=983819&amp;q=&amp;action=search' CLASS='nav'>Culture Of Fear</A><span class='songLabel'> / Esl Music</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Little Dragon</TD><TD>Forever</TD><TD></TD><TD>Little Dragon<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Danger Mouse &amp; Daniele Luppi</TD><TD>Problem Queen</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=977238&amp;q=&amp;action=search' CLASS='nav'>Rome: Original Motion Picture Soundtrack</A><span class='songLabel'> / Capitol Records Inc.</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Little Dragon</TD><TD>Looking Glass</TD><TD></TD><TD>Machine Dreams<span class='songLabel'> / -</span></TD></TR>
+</TBODY></TABLE>
+  </DIV>
+  <DIV CLASS="footer">
+    &copy; 2002-2020 Stanford University.  All rights reserved.  Please read the Stanford University <A HREF="https://www.stanford.edu/site/terms/">acceptable use policy</A><BR>
+    <A HREF="#about">Zookeeper Online &copy; 1997-2020 J Mason. All rights reserved.</A>
+  </DIV>
+</DIV>
+<DIV CLASS="lightbox" ID="about">
+  <DIV CLASS="lightbox-modal">
+    <DIV CLASS="close"><A HREF="#">[x]</A></DIV>
+    <DIV CLASS="body">
+      <P class="title">Zookeeper Online version 2.10.5</P>
+      <P>Zookeeper Online &copy; 1997-2020 J Mason &lt;jmason@ibinx.com&gt;</P>
+      <P>This program is free software; you are welcome to redistribute it
+      under certain conditions.  See the <A HREF="LICENSE" TARGET="_blank">LICENSE</A>
+      for details.</P>
+      <P><A HREF="https://zookeeper.ibinx.com/" TARGET="_blank">Zookeeper Online project homepage</A></P>
+    </DIV>
+  </DIV>
+</DIV>
+</BODY>
+</HTML>

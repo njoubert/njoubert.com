@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+  <TITLE>Zookeeper Online</TITLE>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+  <LINK REL="icon" HREF="img/kzsu/favicon.ico">
+  <LINK REL="stylesheet" HREF="css/tablesorter/theme.default-1563180494.css">
+  <LINK REL="stylesheet" HREF="css/zoostyle-1601110236.css">
+  <LINK REL="stylesheet" HREF="css/kzsustyle-1596221903.css">
+  <LINK REL="stylesheet" HREF="css/about-1558429294.css">
+  <SCRIPT TYPE="text/javascript" SRC="js/jquery.min-1568883508.js"></SCRIPT>
+  <SCRIPT TYPE="text/javascript" SRC="js/jquery.tablesorter.min-1563180494.js"></SCRIPT>
+
+  <!-- pull down date & time pickers if browser is stupid -->
+  <SCRIPT TYPE="text/javascript"><!--
+    var datefield=document.createElement("input");datefield.setAttribute("type","date");if(datefield.type!="date"){document.write('<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />');document.write('<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"><\/script>')
+document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" />');document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"><\/script>');}  // -->
+  </SCRIPT>
+
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio Music Reviews" HREF="zkrss.php?feed=reviews">
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio Airplay Charts" HREF="zkrss.php?feed=charts">
+  <LINK REL="alternate" TYPE="application/rss+xml" TITLE="KZSU Radio A-File Adds" HREF="zkrss.php?feed=adds">
+  <LINK REL="search" TYPE="application/opensearchdescription+xml" HREF="?target=opensearch" title="Zookeeper Online">
+</HEAD>
+<BODY>
+<DIV CLASS="box">
+  <DIV CLASS="header">
+    <DIV CLASS="headerLogo">
+      <A HREF="http://kzsu.stanford.edu/">
+        <IMG SRC="img/kzsu/kzsu_aharoni.png" ALT="KZSU Radio 90.1 FM" TITLE="KZSU Radio 90.1 FM">
+      </A>
+    </DIV>
+    <DIV CLASS="headerListen">
+      <A HREF="http://kzsu.stanford.edu/live"><SPAN CLASS="clickTo">click to</SPAN><BR>listen<BR><SPAN CLASS="listenLive">LIVE</SPAN></A>
+    </DIV>
+    <DIV CLASS="headerNavbar">
+      <A HREF="http://kzsu.stanford.edu/schedule/">schedule</A> +
+      <A HREF="?">music</A> +
+      <A HREF="http://kzsu.stanford.edu/sports/">sports</a> +
+      <A HREF="http://kzsu.stanford.edu/concerts/">concerts</a> +
+      <!--A HREF="http://kzsu.stanford.edu/news/" target="_blank">news</A> + -->
+      <A HREF="http://kzsu.stanford.edu/join/">join</A>
+      <BR>
+      <A HREF="http://kzsu.stanford.edu/contact/">contact</A> +
+      <A HREF="http://kzsu.stanford.edu/about/">about</A> +
+      <A HREF="http://kzsu.stanford.edu/zine/">zine</A> +
+      <A HREF="http://kzsu.stanford.edu/donate/">donate</A> +
+      <A HREF="http://kzsu.stanford.edu/merch/">merch</A>
+    </DIV>
+  </DIV>
+  <DIV CLASS="leftNav">
+    <P CLASS="zktitle"><A HREF="?">Zookeeper Online</A></P>
+    <TABLE CELLPADDING=0>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=find"><B>Find It!</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=search"><B>Classic Search</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewRecent"><B>Recent Reviews</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=addmgr"><B>A-File</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewDJ"><B>DJ Zone!</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2sel" HREF="?action=viewDate"><B>Playlists by Date</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=viewChart"><B>Airplay Charts</B></A></TD></TR>
+      <TR><TD></TD><TD><A CLASS="nav2" HREF="?action=contact"><B>Submit Music</B></A></TD></TR>
+      <TR><TD></TD><TD><DIV style='margin-top:8px'><A CLASS="nav3" HREF="ssoLogin.php"><B>Login</B></A>&nbsp;&nbsp;<A STYLE="font-size: 90%;" HREF="?action=loginHelp">(help)</A></DIV></TD></TR>
+    </TABLE>
+  </DIV>
+  <DIV CLASS="content">
+<DIV CLASS='playlistBanner'>&nbsp;Futurebeat Radio with <A HREF='?action=viewDJ&amp;seq=selUser&amp;viewuser=987' CLASS='nav2'>DJ Joubert</A><DIV>Fri Nov 18, 2011  midnight-1am&nbsp;</DIV></DIV>
+<TABLE class='playlistTable' CELLPADDING=1>
+<THEAD><TR class='playlistHdr' ALIGN=LEFT><TH WIDTH='64px'>Time</TH><TH WIDTH='25%'>Artist</TH><TH WIDTH='25%'>Track</TH><TH></TH><TH>Album/Label</TH></TR></THEAD><TBODY>
+<TR class='songRow'><TD></TD><TD>Dj Shadow</TD><TD>Border Crossing</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991414&amp;q=&amp;action=search' CLASS='nav'>Less You Know, The Better, The</A><span class='songLabel'> / Island Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Paper Diamond</TD><TD>Levitate</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991223&amp;q=&amp;action=search' CLASS='nav'>Levitate</A><span class='songLabel'> / Pretty Lights Music</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Sbtrkt</TD><TD>Ready Set Loop</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=982751&amp;q=&amp;action=search' CLASS='nav'>Sbtrkt</A><span class='songLabel'> / Young Turks</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Paper Diamond</TD><TD>Take Your Time</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991223&amp;q=&amp;action=search' CLASS='nav'>Levitate</A><span class='songLabel'> / Pretty Lights Music</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Nocow</TD><TD>Dispel the Wind</TD><TD></TD><TD>single<span class='songLabel'> / na</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Burial</TD><TD>Archangel</TD><TD></TD><TD>Untrue<span class='songLabel'> / Hyperdub</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>kattoo</TD><TD>place 2</TD><TD></TD><TD>Places<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Jan Jelinek</TD><TD>Do Dekor</TD><TD></TD><TD>-<span class='songLabel'> / -</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Dj Shadow</TD><TD>Sad And Lonely</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991414&amp;q=&amp;action=search' CLASS='nav'>Less You Know, The Better, The</A><span class='songLabel'> / Island Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Near The Parenthesis</TD><TD>Low Horizon</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=936491&amp;q=&amp;action=search' CLASS='nav'>Music For The Forest Concourse</A><span class='songLabel'> / N5MD</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Dj Shadow</TD><TD>Stay The Course Ft. Posdnuos And Talib Kweli</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991414&amp;q=&amp;action=search' CLASS='nav'>Less You Know, The Better, The</A><span class='songLabel'> / Island Records</span></TD></TR>
+<TR class='songRow'><TD></TD><TD>Dj Shadow</TD><TD>Run For Your Life</TD><TD><div class='albumReview'></div></TD><TD><A HREF='?s=byAlbumKey&amp;n=991414&amp;q=&amp;action=search' CLASS='nav'>Less You Know, The Better, The</A><span class='songLabel'> / Island Records</span></TD></TR>
+</TBODY></TABLE>
+  </DIV>
+  <DIV CLASS="footer">
+    &copy; 2002-2020 Stanford University.  All rights reserved.  Please read the Stanford University <A HREF="https://www.stanford.edu/site/terms/">acceptable use policy</A><BR>
+    <A HREF="#about">Zookeeper Online &copy; 1997-2020 J Mason. All rights reserved.</A>
+  </DIV>
+</DIV>
+<DIV CLASS="lightbox" ID="about">
+  <DIV CLASS="lightbox-modal">
+    <DIV CLASS="close"><A HREF="#">[x]</A></DIV>
+    <DIV CLASS="body">
+      <P class="title">Zookeeper Online version 2.10.5</P>
+      <P>Zookeeper Online &copy; 1997-2020 J Mason &lt;jmason@ibinx.com&gt;</P>
+      <P>This program is free software; you are welcome to redistribute it
+      under certain conditions.  See the <A HREF="LICENSE" TARGET="_blank">LICENSE</A>
+      for details.</P>
+      <P><A HREF="https://zookeeper.ibinx.com/" TARGET="_blank">Zookeeper Online project homepage</A></P>
+    </DIV>
+  </DIV>
+</DIV>
+</BODY>
+</HTML>
