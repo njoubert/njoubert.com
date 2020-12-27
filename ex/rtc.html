@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>WebRTC Experiments</title>
+</head>
+<body>
+<h1>WebRTC Experiments</h1>
+
+<video id="localVideo" autoplay playsinline constrols="false"/>
+</body>
+<script>
+function getConnectedDevices(type, callback) {
+    navigator.mediaDevices.enumerateDevices()
+        .then(devices => {
+            const filtered = devices.filter(device => device.kind === type);
+            callback(filtered);
+        });
+}
+
+function playVideoFromCamera(deviceId) {
+    try {
+        const constraints = {'video': true, 'audio': false};
+        const stream = navigator.mediaDevices.getUserMedia(constraints)
+					.then(stream => {
+	  	      const videoElement = document.querySelector('video#localVideo');
+		        videoElement.srcObject = stream;
+					});
+   } catch(error) {
+        console.error('Error opening video camera.', error);
+    }
+}
+playVideoFromCamera();
+
+</script>
+</html>
