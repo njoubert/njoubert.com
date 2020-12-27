@@ -4,6 +4,14 @@
 <head>
   <title>WebRTC Experiments</title>
 </head>
+<style>
+body {
+	background-color: black;
+	color: white;
+;}
+
+
+</style>
 <body>
 <h1>WebRTC Experiments</h1>
 <div id="controls">
@@ -13,6 +21,13 @@
 <div id="selfview">
 	<p>Self View</p>
 	<video id="localVideo" autoplay playsinline constrols="false"/>
+</div>
+<div id="references">
+<p>
+<br/>https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/
+<br/>https://webrtc.org/getting-started/peer-connections
+<br/>https://blog.printf.net/articles/2013/05/17/webrtc-without-a-signaling-server/
+</p>
 </div>
 </body>
 <script>
@@ -32,6 +47,7 @@ function updateVideoSelector(cameras) {
 		const co = document.createElement('option');
 		co.label = camera.label;
 		co.value = camera.deviceId;
+		co.innerHTML = camera.label;
 		if (camera.deviceId == selectedDeviceId) {
 			co.selected = 'selected'
 		}
@@ -63,7 +79,19 @@ function playVideoFromCamera(deviceId) {
   }
 }
 
-// SETUP
+function makeCall() {
+	const configuration = {
+		iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
+	}
+	const peerConnection = new RTCPeerConnection(configuration);
+	peerConnection.createOffer().then(offer => {
+		peerConnection.setLocalDescription(offer);
+		console.log(peerConnection);
+		console.log(offer);
+	});
+}
+
+// ONLOAD
 document.addEventListener("DOMContentLoaded", function() {
 
 	document.getElementById('cameraSelector').addEventListener('change', event => {
@@ -78,6 +106,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	getConnectedDevices('videoinput', updateVideoSelector);
 	playVideoFromCamera();
+	
+	makeCall();
+	
 
 });
 
