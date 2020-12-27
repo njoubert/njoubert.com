@@ -6,31 +6,85 @@
 </head>
 <body>
 <h1>WebRTC Experiments</h1>
-
-<video id="localVideo" autoplay playsinline constrols="false"/>
+<div id="controls">
+	<p>Controls:</p>
+	<select name="cameraSelector" id="cameraSelector"></select>
+</div>
+<div id="selfview">
+	<p>Self View</p>
+	<video id="localVideo" autoplay playsinline constrols="false"/>
+</div>
 </body>
 <script>
 function getConnectedDevices(type, callback) {
-    navigator.mediaDevices.enumerateDevices()
-        .then(devices => {
-            const filtered = devices.filter(device => device.kind === type);
-            callback(filtered);
-        });
+	navigator.mediaDevices.enumerateDevices()
+  	.then(devices => {
+    	const filtered = devices.filter(device => device.kind === type);
+      callback(filtered);
+    });
+}
+
+function updateVideoSelector(cameras) {
+	cs = document.getElementById('cameraSelector');
+	cs.innerHTML = '';
+	const selectedDeviceId = window.localStorage.getItem('cameraId');
+	cameras.map(camera => {
+		const co = document.createElement('option');
+		co.label = camera.label;
+		co.value = camera.deviceId;
+		if (camera.deviceId == selectedDeviceId) {
+			co.selected = 'selected'
+		}
+		return co;
+	}).forEach(co => cs.add(co));
 }
 
 function playVideoFromCamera(deviceId) {
-    try {
-        const constraints = {'video': true, 'audio': false};
-        const stream = navigator.mediaDevices.getUserMedia(constraints)
-					.then(stream => {
-	  	      const videoElement = document.querySelector('video#localVideo');
-		        videoElement.srcObject = stream;
-					});
+	if (!deviceId && window.localStorage.getItem('cameraId')) {
+		deviceId = window.localStorage.getItem('cameraId');
+	}		
+  try {
+		const constraints = {
+			audio: false,			
+			video: {
+				deviceId: deviceId,
+				width:  { ideal: 1280 },
+				height: { ideal: 720 }
+			}, 
+		};
+    const stream = navigator.mediaDevices.getUserMedia(constraints)
+			.then(stream => {
+	  		const videoElement = document.querySelector('video#localVideo');
+		    videoElement.srcObject = stream;
+				window.localStorage.setItem('cameraId', deviceId);
+			});
    } catch(error) {
-        console.error('Error opening video camera.', error);
-    }
+      console.error('Error opening video camera.', error);
+  }
 }
-playVideoFromCamera();
+
+// SETUP
+document.addEventListener("DOMContentLoaded", function() {
+
+	document.getElementById('cameraSelector').addEventListener('change', event => {
+		console.log('option change', event);
+		const deviceId = event.target.options[event.target.selectedIndex].value;
+		playVideoFromCamera(deviceId);
+	});
+
+	navigator.mediaDevices.addEventListener('devicechange', event => {
+		console.log('devicechange', event);
+		getConnectedDevices('videoinput', updateVideoSelector);
+	});
+	getConnectedDevices('videoinput', updateVideoSelector);
+	playVideoFromCamera();
+
+});
+
+
+
+
+
 
 </script>
 </html>
