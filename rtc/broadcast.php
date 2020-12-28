@@ -7,7 +7,7 @@ if (!$memcache->get('bcast-obj')) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$entityBody = file_get_contents('php://input');
-	$memcache->set('bcast-obj', $entityBody);
+	$memcache->set('bcast-obj', json_decode($entityBody));
 	$memcache->increment('bcast-count');
 }
 $ret = new stdClass;

@@ -9,8 +9,6 @@ body {
 	background-color: black;
 	color: white;
 ;}
-
-
 </style>
 <body>
 <h1>Z00M is definitely not Zoom</h1>
@@ -20,63 +18,15 @@ body {
 </div>
 <div id="selfview">
 	<p>Self View</p>
-	<video id="localVideo" autoplay playsinline constrols="false"/>
+	<video id="localVideo" autoplay playsinline controls="false"/>
+</div>
+<div id="otherview">
+	<p>Other View</p>
+	<video id="remoteVideo" autoplay playsinline controls="false">
 </div>
 </body>
 <script>
-
-var state = {
-	one: {sdp:null},
-	two: {sdp:null},
-};
-
-// Worst message bus of all time.
-// Will drop messages if they arrive faster than 500ms refresh rate
-// Does hammer the server constantly
-// Doesn't scale
-// Still I am proud. =D
-class MessageBus {
-	constructor() {
-		this.lastCount = -1;
-		this.lastMessage = null;
-		this.callbacks = [];
-		var that = this;
-		this.poll = setInterval(function() {
-			fetch('broadcast.php')
-				.then(response => response.json())
-				.then(data => {
-					if (that.lastCount == -1) {
-						that.lastCount = data.count;
-						that.lastMessage = data.message;
-					} else if (that.lastCount < data.count) {
-						that.lastCount = data.count;
-						that.lastMessage = data.message;
-						that.callbacks.forEach(function(callback) {
-							try {
-								callback(data.message);
-							} catch (err) { 
-								console.log (err);
-							}
-						});
-					}
-				}); 
-		}, 500);
-	}
-	send(msg) {
-		this.lastCount += 1;
-		fetch('broadcast.php', {
-			method: "POST",
-			headers: {
-				"Accept": "application/json",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(msg),
-		});
-	}
-	addEventListener(callback) {
-		this.callbacks.push(callback);
-	}
-}
+var state = {};
 
 function getConnectedDevices(type, callback) {
 	navigator.mediaDevices.enumerateDevices()
@@ -126,6 +76,53 @@ function playVideoFromCamera(deviceId) {
   }
 }
 
+class MessageBus {
+	constructor() {
+		this.lastCount = -1;
+		this.lastMessage = null;
+		this.callbacks = [];
+		var that = this;
+		this.poll = setInterval(function() {
+			fetch('broadcast.php')
+				.then(response => response.json())
+				.then(data => {
+					if (that.lastCount == -1) {
+						that.lastCount = data.count;
+						that.lastMessage = data.message;
+					} else if (that.lastCount < data.count) {
+						that.lastCount = data.count;
+						that.lastMessage = data.message;
+						that.callbacks.forEach(function(callback) {
+							try {
+								callback(data.message);
+							} catch (err) { 
+								console.log(err);
+							}
+						});
+					}
+				}); 
+		}, 500);
+	}
+
+	send(msg) {
+		if (this.lastCount != -1)	{
+			this.lastCount += 1;
+		}
+		fetch('broadcast.php', {
+			method: "POST",
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(msg),
+		});
+	}
+
+	addEventListener(callback) {
+		this.callbacks.push(callback);
+	}
+}
+
 function makeCall() {
 	const configuration = {
 		iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
@@ -138,27 +135,19 @@ function makeCall() {
 		});
 		state.peerConnection = peerConnection;
 		state.offer = offer;
-		state.bus.addEventListener(function (msg) {
+		state.bus.addEventListener(function (message) {
 			if (message.answer) {
 				console.log("We received an answer!!");
 				const remoteDesc = new RTCSessionDescrption(message.answer);
 				state.peerConnection.setRemoteDescription(remoteDesc);
 			};
 		});
-		state.bus.send({'offer':offer});
+		state.bus.send({offer:offer});
 	});
 }
 
-function makeConnection() {
-	peerConnection = state.peerConnection;
-	offer = state.offer;
-
-	var remote = state.one;
-	if (offer.sdp == state.one.sdp) {
-		remote = state.two
-	}
-
-	peerConnection.setRemoteDescription(new RTCSessionDescription(state.two));
+function beCallee(msg) {
+	console.log("wow we got an offer!");
 	
 }
 
@@ -167,12 +156,11 @@ function makeConnection() {
 if (location.protocol !== 'https:') {
     location.replace(`https:${location.href.substring(location.protocol.length)}`);
 }
+
 // ONLOAD
 document.addEventListener("DOMContentLoaded", function() {
 
-	state.bus = new MessageBus();
-  state.bus.addEventListener(function(msg) {console.log(msg); });
-	
+
 	document.getElementById('cameraSelector').addEventListener('change', event => {
 		console.log('option change', event);
 		const deviceId = event.target.options[event.target.selectedIndex].value;
@@ -186,10 +174,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	getConnectedDevices('videoinput', updateVideoSelector);
 	playVideoFromCamera();
 
-	state.bus.addEventListener(	
+	state.bus = new MessageBus();
+	state.bus.addEventListener(function(msg) {
+		console.log("We're going to try and be an offer");
+		console.log(msg);
+		if (msg.offer) {
+			beCallee(msg);		
+		}
+	});	
 	makeCall();
 
-});
 	
 });
 
