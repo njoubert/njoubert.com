@@ -77,19 +77,25 @@ function playVideoFromCamera(deviceId) {
 }
 
 class MessageBus {
-	constructor() {
+	constructor(next) {
 		this.lastCount = -1;
 		this.lastMessage = null;
 		this.callbacks = [];
+		this.next = next;
+		this.poll();
+		this.poller = setInterval(this.poll.bind(this), 500);
+	}
+	
+	poll() {
 		var that = this;
-		this.poll = setInterval(function() {
-			fetch('broadcast.php')
-				.then(response => response.json())
-				.then(data => {
-					if (that.lastCount == -1) {
-						that.lastCount = data.count;
-						that.lastMessage = data.message;
-					} else if (that.lastCount < data.count) {
+		fetch('broadcast.php')
+			.then(response => response.json())
+			.then(data => {
+				if (that.lastCount == -1) {
+					that.lastCount = data.count;
+					that.lastMessage = data.message;		
+					that.next();
+				} else if (that.lastCount < data.count) {
 						that.lastCount = data.count;
 						that.lastMessage = data.message;
 						that.callbacks.forEach(function(callback) {
@@ -100,8 +106,7 @@ class MessageBus {
 							}
 						});
 					}
-				}); 
-		}, 500);
+				}); 	
 	}
 
 	send(msg) {
@@ -133,12 +138,18 @@ function makeCall() {
 		peerConnection.addEventListener('icecandidate', event => { 
 			console.log('peerConnection icecandidate:', event);
 		});
+		peerConnection.addEventListener('connectionstatechange', event => {
+			console.log("hello");
+			if (peerConnection.connectionState === 'connected') {
+				console.log("Connected!!");
+			}
+		});
 		state.peerConnection = peerConnection;
 		state.offer = offer;
 		state.bus.addEventListener(function (message) {
 			if (message.answer) {
-				console.log("We received an answer!!");
-				const remoteDesc = new RTCSessionDescrption(message.answer);
+				console.log("We received an answer!!", message);
+				const remoteDesc = new RTCSessionDescription(message.answer);
 				state.peerConnection.setRemoteDescription(remoteDesc);
 			};
 		});
@@ -147,10 +158,38 @@ function makeCall() {
 }
 
 function beCallee(msg) {
-	console.log("wow we got an offer!");
-	
+	console.log("wow we got an offer!", msg);
+	const configuration = {
+		iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
+	}
+	state.peerConnection.close();
+	delete state.peerConnection	
+	const peerConnection = new RTCPeerConnection(configuration);
+			peerConnection.addEventListener('connectionstatechange', event => {
+			console.log("hello");
+			if (peerConnection.connectionState === 'connected') {
+				console.log("Connected!!");
+			}
+		});
+
+	peerConnection.setRemoteDescription(new RTCSessionDescription(msg.offer));
+	peerConnection.createAnswer()
+		.then(answer => {
+			peerConnection.setLocalDescription(answer);
+			state.bus.send({answer:answer});
+			state.peerConnection = peerConnection;
+		});	
 }
 
+function init() {
+	state.bus.addEventListener(function(msg) {
+		if (msg.offer) {
+			beCallee(msg);		
+		}
+	});	
+	makeCall();
+
+}
 
 // Force https
 if (location.protocol !== 'https:') {
@@ -174,16 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	getConnectedDevices('videoinput', updateVideoSelector);
 	playVideoFromCamera();
 
-	state.bus = new MessageBus();
-	state.bus.addEventListener(function(msg) {
-		console.log("We're going to try and be an offer");
-		console.log(msg);
-		if (msg.offer) {
-			beCallee(msg);		
-		}
-	});	
-	makeCall();
-
+	state.bus = new MessageBus(init);
 	
 });
 
