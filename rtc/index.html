@@ -12,6 +12,13 @@ body {
 </style>
 <body>
 <h1>Z00M is definitely not Zoom</h1>
+<div id="status">
+	<p>Status:</p>
+	<table>
+		<tr><td>Server Connection</td><td><span id="span-serverconn"></span></td></tr>
+		<tr><td>Peer Connection</td><td><span id="span-peerconn"></td></span></tr>
+	<table>
+</div>
 <div id="controls">
 	<p>Controls:</p>
 	<select name="cameraSelector" id="cameraSelector"></select>
@@ -27,6 +34,9 @@ body {
 </body>
 <script>
 var state = {};
+const configuration = {
+	iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
+}
 
 function getConnectedDevices(type, callback) {
 	navigator.mediaDevices.enumerateDevices()
@@ -70,20 +80,33 @@ function playVideoFromCamera(deviceId) {
 	  		const videoElement = document.querySelector('video#localVideo');
 		    videoElement.srcObject = stream;
 				window.localStorage.setItem('cameraId', deviceId);
+				state.localStream = stream;
+				updateStreams();
+				makeCall();
 			});
    } catch(error) {
       console.error('Error opening video camera.', error);
   }
 }
 
+function updateStreams() {
+	if (state.peerConnection && state.localStream) {
+		state.localStream.getTracks().forEach(track => {
+			state.peerConnection.addTrack(track, state.localStream);
+		});	
+	}
+}
+
 class MessageBus {
-	constructor(next) {
+	constructor(next, infoEl) {
 		this.lastCount = -1;
-		this.lastMessage = null;
+		this.lastTime = null;
 		this.callbacks = [];
 		this.next = next;
 		this.poll();
 		this.poller = setInterval(this.poll.bind(this), 500);
+		this.heartbeat = setInterval(this.updateInfoEl.bind(this), 250);
+		this.infoEl = infoEl;
 	}
 	
 	poll() {
@@ -91,13 +114,12 @@ class MessageBus {
 		fetch('broadcast.php')
 			.then(response => response.json())
 			.then(data => {
+				that.lastTime = Date.now();
 				if (that.lastCount == -1) {
 					that.lastCount = data.count;
-					that.lastMessage = data.message;		
 					that.next();
 				} else if (that.lastCount < data.count) {
 						that.lastCount = data.count;
-						that.lastMessage = data.message;
 						that.callbacks.forEach(function(callback) {
 							try {
 								callback(data.message);
@@ -126,29 +148,34 @@ class MessageBus {
 	addEventListener(callback) {
 		this.callbacks.push(callback);
 	}
+
+	updateInfoEl() {
+		if (!this.lastTime) {
+			this.infoEl.style.backgroundColor = "red";	
+			this.infoEl.innerHTML = "No connection";
+		} if (Date.now() - this.lastTime > 1000) {
+			this.infoEl.style.backgroundColor = "red";
+			this.infoEl.innerHTML = "No response in over 1000ms"; 
+		} else {
+			this.infoEl.style.backgroundColor = "green";
+			this.infoEl.innerHTML = this.lastTime;
+		}
+	};	
 }
 
 function makeCall() {
-	const configuration = {
-		iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
-	}
-	const peerConnection = new RTCPeerConnection(configuration);
-	peerConnection.createOffer().then(offer => {
-		peerConnection.setLocalDescription(offer);
-		peerConnection.addEventListener('icecandidate', event => { 
-			console.log('peerConnection icecandidate:', event);
-		});
-		peerConnection.addEventListener('connectionstatechange', event => {
-			console.log("hello");
-			if (peerConnection.connectionState === 'connected') {
-				console.log("Connected!!");
-			}
-		});
-		state.peerConnection = peerConnection;
+	if (!state.peerConnection || !state.localStream) {
+		console.log("I don't have a peer connection or a local stream");
+		return;
+	};
+	updateStreams();
+	state.peerConnection.createOffer().then(offer => {
+		state.peerConnection.setLocalDescription(offer);
+		console.log("Created offer");
 		state.offer = offer;
 		state.bus.addEventListener(function (message) {
 			if (message.answer) {
-				console.log("We received an answer!!", message);
+				console.log("Received answer");
 				const remoteDesc = new RTCSessionDescription(message.answer);
 				state.peerConnection.setRemoteDescription(remoteDesc);
 			};
@@ -158,26 +185,12 @@ function makeCall() {
 }
 
 function beCallee(msg) {
-	console.log("wow we got an offer!", msg);
-	const configuration = {
-		iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
-	}
-	state.peerConnection.close();
-	delete state.peerConnection	
-	const peerConnection = new RTCPeerConnection(configuration);
-			peerConnection.addEventListener('connectionstatechange', event => {
-			console.log("hello");
-			if (peerConnection.connectionState === 'connected') {
-				console.log("Connected!!");
-			}
-		});
-
-	peerConnection.setRemoteDescription(new RTCSessionDescription(msg.offer));
-	peerConnection.createAnswer()
+	state.peerConnection.setRemoteDescription(new RTCSessionDescription(msg.offer));
+	state.peerConnection.createAnswer()
 		.then(answer => {
-			peerConnection.setLocalDescription(answer);
+			console.log("Create answer");
+			state.peerConnection.setLocalDescription(answer);
 			state.bus.send({answer:answer});
-			state.peerConnection = peerConnection;
 		});	
 }
 
@@ -187,7 +200,40 @@ function init() {
 			beCallee(msg);		
 		}
 	});	
+	
+	const peerConnection = new RTCPeerConnection(configuration);
+	peerConnection.addEventListener('connectionstatechange', event => {
+		if (peerConnection.connectionState === 'connected') {
+			console.log("Connected!!");
+		}
+	});
+	peerConnection.addEventListener('icegatheringstatechange', event => {
+		if (event.target.iceGatheringState === "complete") {
+			
+	  }	
+	});
+	//peerConnection.addEventListener('icecandidate', event => {
+	//	console.log("ice candidate", event);
+	//});
+	peerConnection.addEventListener('track', event => {
+		console.log("track", event);
+	});
+	state.peerConnection = peerConnection;
 	makeCall();
+
+	const peerInfoEl = document.getElementById("span-peerconn");
+	state.connPoll = setInterval(function() { 
+		if (!state.peerConnection) {
+			peerInfoEl.innerHTML = "No connection";
+			peerInfoEl.style.backgroundColor = "red";
+		} else {
+			peerInfoEl.style.backgroundColor = "green";
+			peerInfoEl.innerHTML = "signaling: " 
+				+ state.peerConnection.signalingState 
+				+ " connection: " 
+				+ state.peerConnection.connectionState;	
+		}
+	}, 500);
 
 }
 
@@ -198,7 +244,6 @@ if (location.protocol !== 'https:') {
 
 // ONLOAD
 document.addEventListener("DOMContentLoaded", function() {
-
 
 	document.getElementById('cameraSelector').addEventListener('change', event => {
 		console.log('option change', event);
@@ -213,7 +258,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	getConnectedDevices('videoinput', updateVideoSelector);
 	playVideoFromCamera();
 
-	state.bus = new MessageBus(init);
+	const serverInfoEl = document.getElementById("span-serverconn");
+	state.bus = new MessageBus(init,serverInfoEl);
 	
 });
 
