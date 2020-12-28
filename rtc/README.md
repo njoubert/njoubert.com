@@ -5,7 +5,11 @@ v0.0.1 - selfie video view works!
 
 ## Awesome Stuff
 
+https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/
+https://webrtc.org/getting-started/peer-connections
+https://blog.printf.net/articles/2013/05/17/webrtc-without-a-signaling-server/
 https://webrtc.github.io/samples/src/content/peerconnection/munge-sdp/
+
 
 Chad Hart:
 * Servers for WebRTC https://www.youtube.com/watch?v=Y1mx7cx6ckI&feature=youtu.be
