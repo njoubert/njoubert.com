@@ -1,7 +1,7 @@
 # z00m is not zoom
 
-v0.0.2 - you can connect to another person!
-v0.0.1 - selfie video view works!
+* v0.0.2 - you can connect to another person! lots of bugs though.
+* v0.0.1 - selfie video view works!
 
 ## Awesome Stuff
 
