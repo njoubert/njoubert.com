@@ -72,8 +72,8 @@ const configuration = {
 
 function getConnectedDevices(type, callback) {
 	navigator.mediaDevices.enumerateDevices()
-  	.then(devices => {
-    	const filtered = devices.filter(device => device.kind === type);
+		.then(devices => {
+			const filtered = devices.filter(device => device.kind === type);
       callback(filtered);
     });
 }
@@ -109,12 +109,11 @@ function playVideoFromCamera(deviceId) {
 		};
     const stream = navigator.mediaDevices.getUserMedia(constraints)
 			.then(stream => {
-	  		const videoElement = document.querySelector('video#localVideo');
-		    videoElement.srcObject = stream;
+				const videoElement = document.querySelector('video#localVideo');
+				videoElement.srcObject = stream;
 				window.localStorage.setItem('cameraId', deviceId);
 				state.localStream = stream;
 				updateStreams();
-				makeCall();
 			});
    } catch(error) {
       console.error('Error opening video camera.', error);
@@ -162,7 +161,7 @@ class MessageBus {
 							}
 						});
 					}
-				}); 	
+				});		
 	}
 
 	send(msg) {
@@ -290,7 +289,7 @@ function init() {
 		}
 	});
 	peerConnection.addEventListener('icegatheringstatechange', event => {
-		if (event.target.iceGatheringState === "complete") {
+		if (event.target.iceGatheringState === "complete" && state.iceCandidates) {
 			console.log("ice gathering complete:", state.iceCandidates.length, "candidates");
 			trySendIceCandidates();
 		}	
