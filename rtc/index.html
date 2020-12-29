@@ -4,32 +4,60 @@
 <head>
   <title>Z00M</title>
 </head>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="initial-scale=1.0">
 <style>
 body {
 	background-color: black;
 	color: white;
-;}
+	margin:0 auto;
+	padding:0;
+	font-size:75%;
+};
+#localVideo{
+}
+#status {
+	position:fixed;
+	top:0;
+	right:0;	
+	z-index:10000;
+}
+#selfview {
+	position:fixed;
+	top:0;
+	left:0;
+	width:25%;
+}
+#selfview video {
+	width: 100%;
+	height: 100%;
+}
+#otherview {
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:-1000;
+}
+#otherview video {
+	width: 100%;
+	height: 100%;
+}
 </style>
 <body>
-<h1>Z00M is definitely not Zoom</h1>
 <div id="status">
-	<p>Status:</p>
 	<table>
 		<tr><td>Server Connection</td><td><span id="span-serverconn"></span></td></tr>
 		<tr><td>Peer Connection</td><td><span id="span-peerconn"></td></span></tr>
-	<table>
-</div>
-<div id="controls">
-	<p>Controls:</p>
+	</table>
 	<select name="cameraSelector" id="cameraSelector"></select>
 </div>
 <div id="selfview">
-	<p>Self View</p>
-	<video id="localVideo" autoplay playsinline controls="false"/>
+	<video id="localVideo" autoplay playsinline muted/>
 </div>
 <div id="otherview">
-	<p>Other View</p>
-	<video id="remoteVideo" autoplay playsinline controls="false">
+	<video id="remoteVideo" autoplay playsinline>
 </div>
 </body>
 <script>
@@ -37,7 +65,8 @@ var state = {
 	isCaller: true
 };
 const configuration = {
-	iceServers: [{urls: 'stun:stun.l.google.com:19302'}]
+	iceServers: 
+		[{urls: 'stun:stun.l.google.com:19302'}]
 }
 
 function getConnectedDevices(type, callback) {
