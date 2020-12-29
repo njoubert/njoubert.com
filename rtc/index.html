@@ -49,6 +49,7 @@ body {
 <div id="status">
 	<table>
 		<tr><td>Server Connection</td><td><span id="span-serverconn"></span></td></tr>
+		<tr><td>isCaller</td><td><span id="span-iscaller"></span></td></tr>
 		<tr><td>Peer Connection</td><td><span id="span-peerconn"></td></span></tr>
 	</table>
 	<select name="cameraSelector" id="cameraSelector"></select>
@@ -62,7 +63,7 @@ body {
 </body>
 <script>
 var state = {
-	isCaller: true
+	isCaller: true,
 };
 const configuration = {
 	iceServers: 
@@ -221,9 +222,10 @@ function makeCall() {
 			if (message.iceCandidates) {
 				console.log("Received iceCandidates!");
 				message.iceCandidates.forEach(ice => {
-					console.log(ice);
 					state.peerConnection.addIceCandidate(ice)
+					state.hasReceivedCandidates = true;
 				});
+				trySendIceCandidates();
 			}
 		});
 		state.bus.send({offer:offer});
@@ -243,6 +245,7 @@ function beCallee(msg) {
 				if (message.iceCandidates) {
 					console.log("Received iceCandidates!");
 					if (state.peerConnection.signalingState === "stable") {
+						state.hasReceivedCandidates = true;
 						message.iceCandidates.forEach(ice => state.peerConnection.addIceCandidate(ice));
 					} else {
 						state.remoteIceCandidates = message.iceCandidates;	
@@ -255,9 +258,12 @@ function beCallee(msg) {
 function trySendIceCandidates() {
 	if (state.peerConnection.iceGatheringState === "complete" 
 			&& state.peerConnection.signalingState === "stable"
-			&& state.isCaller) {
+			&& 
+				((state.isCaller && !state.hasSentCandidates) 
+				|| (!state.isCaller && state.hasReceivedCandidates))) {
 		console.log("We are going to send ICE candidates now!");
 		state.bus.send({iceCandidates:state.iceCandidates});
+		state.hasSentCandidates = true;
 	} else {
 		console.log(
 			"not yet ready to send ICE.",
@@ -278,6 +284,9 @@ function init() {
 	peerConnection.addEventListener('connectionstatechange', event => {
 		if (peerConnection.connectionState === 'connected') {
 			console.log("Connected!!");
+			if (!state.isCaller) {
+				trySendIceCandidates();
+			}
 		}
 	});
 	peerConnection.addEventListener('icegatheringstatechange', event => {
@@ -314,6 +323,7 @@ function init() {
 
 	//INFO DISPLAY
 	const peerInfoEl = document.getElementById("span-peerconn");
+	const isCallerInfoEl = document.getElementById("span-iscaller");
 	state.connPoll = setInterval(function() { 
 		if (!state.peerConnection) {
 			peerInfoEl.innerHTML = "No connection";
@@ -325,6 +335,7 @@ function init() {
 				+ " connection: " 
 				+ state.peerConnection.connectionState;	
 		}
+		isCallerInfoEl.innerHTML = state.isCaller;
 	}, 500);
 
 }
