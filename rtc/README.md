@@ -3,6 +3,13 @@
 * v0.0.2 - you can connect to another person! lots of bugs though.
 * v0.0.1 - selfie video view works!
 
+## TODO
+
+- Backend message bus that does not require turn-by-turn communication.
+- Room-based so that you can send a link to anyone. 
+- Multi-person
+- TURN server for those tricky situations
+
 ## Awesome Stuff
 
 https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/
