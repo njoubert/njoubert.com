@@ -6,9 +6,12 @@
 ## TODO
 
 - Backend message bus that does not require turn-by-turn communication.
+- Get a proper cert from LetsEncrypt and upgrade Ubuntu
+- Rewrite properly with async and await and none of this horrible hacky v0.0.2 kruft
 - Room-based so that you can send a link to anyone. 
 - Multi-person
 - TURN server for those tricky situations
+
 
 ## Awesome Stuff
 
