@@ -100,7 +100,7 @@ function playVideoFromCamera(deviceId) {
   }   
   try {
     const constraints = {
-      audio: false,     
+      audio: true,     
       video: {
         deviceId: deviceId,
         width:  { ideal: 1280 },
